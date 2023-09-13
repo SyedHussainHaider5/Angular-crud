@@ -1,0 +1,45 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "employees": [
+    {
+      "firstName": "Syed Hussain Haider",
+      "lastName": "Bukhari",
+      "email": "syedhussain@gmail.com",
+      "dob": "2023-09-12T19:00:00.000Z",
+      "gender": "male",
+      "education": "Graduate",
+      "company": "Ibex",
+      "experience": 2,
+      "package": 100,
+      "id": 1
+    },
+    {
+      "firstName": "sfsdf",
+      "lastName": "sfsdf",
+      "email": "sfsdf",
+      "dob": "2023-09-11T19:00:00.000Z",
+      "gender": "male",
+      "education": "Diploma",
+      "company": "sfs",
+      "experience": 2,
+      "package": 3,
+      "id": 2
+    }
+  ]
+}
