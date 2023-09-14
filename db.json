@@ -28,42 +28,6 @@
       "experience": 2,
       "package": 100,
       "id": 1
-    },
-    {
-      "firstName": "sfsdf",
-      "lastName": "sfsdf",
-      "email": "sfsdf",
-      "dob": "2023-09-11T19:00:00.000Z",
-      "gender": "male",
-      "education": "Diploma",
-      "company": "sfs",
-      "experience": 2,
-      "package": 3,
-      "id": 2
-    },
-    {
-      "firstName": "gjfghj",
-      "lastName": "fghfgh",
-      "email": "fghfgh",
-      "dob": "2023-09-12T19:00:00.000Z",
-      "gender": "others",
-      "education": "Intermediate",
-      "company": "gh",
-      "experience": 4,
-      "package": 5,
-      "id": 3
-    },
-    {
-      "firstName": "hghgh",
-      "lastName": "fgdfg",
-      "email": "dgff@gmail.com",
-      "dob": "2023-09-19T19:00:00.000Z",
-      "gender": "male",
-      "education": "Graduate",
-      "company": "ghjghj",
-      "experience": 9,
-      "package": 567,
-      "id": 4
     }
   ]
 }

@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { EmployeeService } from '../services/employee.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-emp-add-edit',
@@ -23,10 +24,11 @@ export class EmpAddEditComponent implements OnInit {
     private _fb: FormBuilder,
     private _empService: EmployeeService,
     private _dialogRef: MatDialogRef<EmpAddEditComponent>,
+    private _toastr: ToastrService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.empForm = this._fb.group({
-      firstName: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+      firstName: new FormControl('',[Validators.required,Validators.pattern('[a-z A-Z]+$')]),
       lastName: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
       email: new FormControl('',[Validators.required,Validators.email]),
       dob: new FormControl('',[Validators.required]),
@@ -49,7 +51,8 @@ export class EmpAddEditComponent implements OnInit {
           .updateEmployee(this.data.id, this.empForm.value)
           .subscribe({
             next: (val: any) => {
-              alert('Employee updated successfully ');
+              this._toastr.success('Employee updated successfully')
+              // alert('Employee updated successfully ');
               this._dialogRef.close(true);
             },
             error: (err: any) => {
@@ -59,7 +62,8 @@ export class EmpAddEditComponent implements OnInit {
       } else {
         this._empService.addEmployee(this.empForm.value).subscribe({
           next: (val: any) => {
-            alert('Employee added successfully ' + val.firstName);
+            this._toastr.success('Employee added successfully')
+            // alert('Employee added successfully ' + val.firstName);
             this._dialogRef.close(true);
           },
           error: (err: any) => {
