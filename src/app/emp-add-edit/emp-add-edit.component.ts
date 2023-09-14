@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { EmployeeService } from '../services/employee.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
@@ -11,7 +11,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class EmpAddEditComponent implements OnInit {
   empForm: FormGroup;
 
-  education: string[] = [
+  _education: string[] = [
     'Matric',
     'Diploma',
     'Intermediate',
@@ -26,15 +26,15 @@ export class EmpAddEditComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.empForm = this._fb.group({
-      firstName: '',
-      lastName: '',
-      email: '',
-      dob: '',
-      gender: '',
-      education: '',
-      company: '',
-      experience: '',
-      package: '',
+      firstName: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+      lastName: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+      email: new FormControl('',[Validators.required,Validators.email]),
+      dob: new FormControl('',[Validators.required]),
+      gender: new FormControl('',[Validators.required]),
+      education: new FormControl('',[Validators.required]),
+      company: new FormControl('',[Validators.required,Validators.pattern('^[.@&]?[a-zA-Z0-9 ]+[ !.@&()]?[ a-zA-Z0-9!()]+$')]),
+      experience: new FormControl('',[Validators.required]),
+      package: new FormControl('',[Validators.required]),
     });
   }
 
@@ -69,4 +69,36 @@ export class EmpAddEditComponent implements OnInit {
       }
     }
   }
+
+  get firstName(){
+    return this.empForm.get('firstName');
+  }
+
+  get lastName(){
+    return this.empForm.get('lastName');
+  }
+  
+  get email(){
+    return this.empForm.get('email');
+  }
+
+  get dob(){
+    return this.empForm.get('dob');
+  }
+  get gender(){
+    return this.empForm.get('gender');
+  }
+  get education(){
+    return this.empForm.get('education');
+  }
+  get company(){
+    return this.empForm.get('company');
+  }
+  get experience(){
+    return this.empForm.get('experience');
+  }
+  get package(){
+    return this.empForm.get('package');
+  }
+
 }
